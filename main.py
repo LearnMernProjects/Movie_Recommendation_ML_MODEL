@@ -23,6 +23,10 @@ app.add_middleware(CORSMiddleware, allow_origins=["*"],
                    allow_methods=["*"],
                    allow_headers=["*"],)
 
+@app.get("/")
+def read_root():
+    return {"message": "Movie Recommendation API is running"}
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DF_PATH = os.path.join(BASE_DIR, "df.pkl")
 INDICES_PATH = os.path.join(BASE_DIR, "indices.pkl")
